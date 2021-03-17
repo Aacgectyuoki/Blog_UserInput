@@ -3,7 +3,6 @@ var blog=[];
 function submitBlog() {
     insertNewBlog();
     displayBlog();
-    resetData();
 }
 
 function readFormData() {
