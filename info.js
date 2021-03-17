@@ -3,6 +3,7 @@ var blog=[];
 function submitBlog() {
     insertNewBlog();
     displayBlog();
+    resetData();
 }
 
 function readFormData() {
@@ -20,7 +21,7 @@ function readFormData() {
 // one function to display your blog listing, you have to use loop inside it
 
 function displayBlog() {
-  retrieveFromSession();
+  retrieveData();
 	var container = document.getElementById('blogCont');
 	var content = '';
   for (let i = 0; i < blog.length; i++) {
@@ -31,6 +32,7 @@ function displayBlog() {
         <p class="card-text">${blog[i].desc}</p>
         </div>
         </div>
+        <hr>
         `;
 	}
 	container.innerHTML = content;
@@ -44,7 +46,7 @@ function retrieveData() {
   }
 }
 
-function insertNewBlog(formData) {
+function insertNewBlog() {
   retrieveData();
   var newEntry = readFormData();
   blog.push(newEntry);
@@ -53,5 +55,5 @@ function insertNewBlog(formData) {
 
 function deleteRec(data){
     var row = data.parentElement.parentElement;
-    document.getElementById("employeeDetails").deleteRow(row.rowIndex);
+    document.getElementById("blog").deleteRow(row.rowIndex);
 }
