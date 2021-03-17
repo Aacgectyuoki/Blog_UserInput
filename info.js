@@ -24,11 +24,12 @@ function displayBlog() {
 	var container = document.getElementById('blogCont');
 	var content = '';
   for (let i = 0; i < blog.length; i++) {
-        content += `<div class="card">
-        <img src="${blog[i].imageId}" class="card-img-top">
+        content += `<div class="card text-white bg-info mb-3" style="width:80%;">
+        <img style="width:500px; margin: 10px;" src="${blog[i].imageId}" class="card-img-top">
         <div class="card-body">
-        <h3 class="card-title">${blog[i].title}</h3>
-        <p class="card-text">${blog[i].desc}</p>
+        <h3 style="width:80%;" class="card-title">${blog[i].title}</h3>
+        <p style="width:80%;" class="card-text">${blog[i].desc}</p>
+        <button name="ResetForm" class="btn waves-effect waves-light" id="ResetForm" type="button">Reset Data</button>
         </div>
         </div>
         <hr>
@@ -50,9 +51,4 @@ function insertNewBlog() {
   var newEntry = readFormData();
   blog.push(newEntry);
   localStorage.setItem("blog", JSON.stringify(blog));
-}
-
-function deleteRec(data){
-    var row = data.parentElement.parentElement;
-    document.getElementById("blog").deleteRow(row.rowIndex);
 }

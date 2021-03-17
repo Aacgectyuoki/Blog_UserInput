@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="info.js"></script>
 </head>
 <body>
 
 <!-- navigation bar -->
-  <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
+  <div class="navbar-expand-lg navbar-light bg-light" id="navbarResponsive" style="background-color: BlanchedAlmond;">
     <ul class="nav justify-content-end">
         <li class="nav-item">
         <a href="#" class="nav-link"> About Us</a>
@@ -23,9 +24,6 @@
         <li class="nav-item">
             <a href="login2.html" class="nav-link">Login</a>
         </li>
-        <form _ngcontent-dom-c48="" class="form-inline ml-lg-2">
-          <a _ngcontent-dom-c48="" routerlink="/new" class="btn btn-primary" href="/new">New Post</a>
-        </form>
         <li class="nav-item">
             <a href="#" class="nav-link">Blog</a>
         </li>
@@ -33,11 +31,16 @@
       </div>
 
 <!-- post blog -->
-    Title : <input type="text" id="title"/><br><br>
-    Description : <textarea type="text" id="desc">
+    <hr>
+    <h2>Type below to submit your blog</h2>
+    <p>Title, Description, & Image are all required</p>
+    Title<br><input style="padding: 10px;
+  border: 2px solid red;" type="text" id="title"/><br><br>
+    Description<br><textarea style="padding: 10px;
+  border: 2px solid red;" type="text" id="desc">
     </textarea><br><br>
-    <input type="file" id="imageId"/>
-    <input type="button" value="Add Blog" onclick="submitBlog()"/>
+    <input type="file" id="imageId" style="margin-left: 10px;"/><br><br>
+    <input type="button" style="height:50px; width: 200px; margin-left: 10px;" value="Submit Blog" onclick="submitBlog()"/>
     <hr/>
 
     <div id="blogCont"></div>
