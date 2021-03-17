@@ -33,7 +33,7 @@ function insertNewBlog() {
   localStorage.setItem("blog", JSON.stringify(blog));
 }
 
-// displays the blog, using a loop
+// displays the blog in top to bottom format, using a loop
 function displayBlog() {
   retrieveData();
   var container = document.getElementById('blogCont');
