@@ -1,10 +1,12 @@
 var blog=[];
 
+// button to submit the blog
 function submitBlog() {
     insertNewBlog();
     displayBlog();
 }
 
+// reads the data from the written material in the textfields and other inputs
 function readFormData() {
   var formData={};
   formData.title = document.getElementById("title").value;
@@ -14,15 +16,28 @@ function readFormData() {
   return(formData);
 }
 
-// use array to store data
-// one function to retrieve latest values from local localStorage
-// one function to insert value from local localStorage
-// one function to display your blog listing, you have to use loop inside it
+// retrieves the latest values from the local storage
+function retrieveData() {
+  var str = localStorage.getItem("blog");
+  console.log(str);
+  if (str !== null) {
+    blog = JSON.parse(str);
+  }
+}
 
+// inserts the data into the blog, and creates a new blog
+function insertNewBlog() {
+  retrieveData();
+  var newEntry = readFormData();
+  blog.push(newEntry);
+  localStorage.setItem("blog", JSON.stringify(blog));
+}
+
+// displays the blog, using a loop
 function displayBlog() {
   retrieveData();
-	var container = document.getElementById('blogCont');
-	var content = '';
+  var container = document.getElementById('blogCont');
+  var content = '';
   for (let i = 0; i < blog.length; i++) {
         content += `<div class="card text-white bg-info mb-3" style="width:80%;">
         <img style="width:500px; margin: 10px;" src="${blog[i].imageId}" class="card-img-top">
@@ -36,19 +51,4 @@ function displayBlog() {
         `;
 	}
 	container.innerHTML = content;
-}
-
-function retrieveData() {
-  var str = localStorage.getItem("blog");
-  console.log(str);
-  if (str !== null) {
-    blog = JSON.parse(str);
-  }
-}
-
-function insertNewBlog() {
-  retrieveData();
-  var newEntry = readFormData();
-  blog.push(newEntry);
-  localStorage.setItem("blog", JSON.stringify(blog));
 }
