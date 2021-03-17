@@ -21,7 +21,7 @@ function readFormData() {
 
 function displayBlog() {
   retrieveFromSession();
-	var container = document.getElementById('cardContainer');
+	var container = document.getElementById('blogCont');
 	var content = '';
   for (let i = 0; i < blog.length; i++) {
         content += `<div class="card">
